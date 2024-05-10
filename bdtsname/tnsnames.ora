@@ -1,0 +1,10 @@
+POSEIDON =
+      ( DESCRIPTION =
+          ( ADDRESS_LIST = ( ADDRESS = (PROTOCOL = TCP)(HOST = 172.19.211.91)(PORT = 7520) )
+                           ( LOAD_BALANCE = yes ) )
+          ( CONNECT_DATA = ( SERVER = DEDICATED )
+                           ( SERVICE_NAME = DBPRUEBAS )
+                           ( FAILOVER_MODE = ( TYPE = SELECT )
+                                             ( METHOD = BASIC )
+                                             ( RETRIES = 180 )
+                                             ( DELAY = 5 ) ) ) )

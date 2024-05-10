@@ -9,8 +9,8 @@ public class ProjectConstants {
 	public static final int NRO_VECES_REFRESH_CON_TOKEN_EXPIRADO = 100;
 	
 	public class Aplicativo {
-		public static final String NOMBRE = "consultaServicioPide-ws";
-		public static final String VERSION = "1.1.0";
+		public static final String NOMBRE = "consulta-siga-ws";
+		public static final String VERSION = "1.0.0";
 	}
 	
 	public class Auditoria {
@@ -125,15 +125,8 @@ public class ProjectConstants {
 	}
 	
 	public class Proceso {
-		public static final String SUNARP_BUSCAR_OFICINAS = "Buscar Oficinas en Sunarp";
-		public static final String SUNARP_BUSCAR_TITULARIDAD = "Buscar Titularidad en Sunarp";
-		public static final String SUNARP_BUSCAR_ASIENTOS = "Buscar Asientos en Sunarp";
-		public static final String SUNARP_BUSCAR_ASIENTO_IMG = "Buscar Imagen Asiento en Sunarp";
-		public static final String SUNARP_BUSCAR_VEHICULO_DETALLE = "Buscar Detalle Vehiculo en Sunarp";
-		public static final String SUNARP_BUSCAR_PERSONA_JURIDICA = "Buscar Persona Juridica en Sunarp";
-		public static final String CONADIS_BUSCAR_PERSONA_DISCAPACIDAD = "Buscar Discapacidad Persona en Conadis";
-		public static final String SBS_CONSULTAR_TIPOCAMBIO_POR_CODIGO_MONEDA = "Consultar el tipo de cambio para una moneda y fecha solicitada en la SBS";
-	}
+		public static final String SIGA_CONSULTAR_ESTADO = "Consultar Estado del Personal en el SIGA";
+		}
 	
 	public class Mensajes {
 		public static final String MSG_ERROR_GENERICO_CONVERSION = "El tipo de dato de entrada es incorrecto";

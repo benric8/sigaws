@@ -4,22 +4,22 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>pe.gob.pj.consiga</groupId>
-		<artifactId>consultaServiciosPide-ws-rest</artifactId>
-		<version>1.1.0</version>
+		<artifactId>consulta-siga-ws-rest</artifactId>
+		<version>1.0.0</version>
 	</parent>
-	<artifactId>consultaServiciosPide-ws-infraestructure</artifactId>
+	<artifactId>consulta-siga-ws-infraestructure</artifactId>
 	<packaging>war</packaging>
 	<name>Módulo infraestructure</name>
 
 	<dependencies>
 		<dependency>
 			<groupId>pe.gob.pj.consiga</groupId>
-			<artifactId>consultaServiciosPide-ws-usecase</artifactId>
+			<artifactId>consulta-siga-ws-usecase</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>pe.gob.pj.consiga</groupId>
-			<artifactId>consultaServiciosPide-ws-domain</artifactId>
+			<artifactId>consulta-siga-ws-domain</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<!-- inicio spring web -->
@@ -87,7 +87,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>consultaServiciosPide-ws-v${project.version}</finalName>
+		<finalName>consulta-siga-ws-v${project.version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

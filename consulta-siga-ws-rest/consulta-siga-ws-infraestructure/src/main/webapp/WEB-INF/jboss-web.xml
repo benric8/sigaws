@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-web>
-    <context-root>consultaServiciosPide-ws</context-root>
+    <context-root>consulta-siga-ws</context-root>
 </jboss-web>

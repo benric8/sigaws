@@ -9,11 +9,11 @@
 	</parent>
 
 	<groupId>pe.gob.pj.consiga</groupId>
-	<artifactId>consultaServiciosPide-ws-rest</artifactId>
-	<version>1.1.0</version>
+	<artifactId>consulta-siga-ws-rest</artifactId>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
-	<name>Consulta Servicios PIDE WS REST</name>
-	<description>Proyecto de migración WSPide</description>
+	<name>Consulta Siga WS REST</name>
+	<description>Proyecto de consulta SIGA</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -111,8 +111,8 @@
 	</dependencyManagement>
 
 	<modules>
-		<module>consultaServiciosPide-ws-infraestructure</module>
-		<module>consultaServiciosPide-ws-usecase</module>
-		<module>consultaServiciosPide-ws-domain</module>
+		<module>consulta-siga-ws-infraestructure</module>
+		<module>consulta-siga-ws-usecase</module>
+		<module>consulta-siga-ws-domain</module>
 	</modules>
 </project>

@@ -29,7 +29,7 @@ import pe.gob.pj.consiga.infraestructure.rest.response.GlobalResponse;
 @Slf4j
 @RestController
 @RequestMapping(value="conadis", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-public class ConsultarConadisController implements Serializable{
+public class ConsultaSigaController implements Serializable{
 
 	/**
 	 * 
@@ -40,7 +40,7 @@ public class ConsultarConadisController implements Serializable{
 	@Qualifier("conadisClient")
 	private ConadisClient client;
 	
-	@GetMapping(value="buscar/persona")
+	@GetMapping(value="consultar/usuario_estado")
 	public ResponseEntity<GlobalResponse> buscarOficinas(@RequestAttribute(name=ProjectConstants.AUD_CUO) String cuo,
 			@RequestParam(name = "formatoRespuesta", defaultValue = "json", required = false) String formatoRespuesta,
 			@Pattern(regexp = ProjectConstants.Pattern.NUMBER, message = "El parámetro numeroDocumentoIdentidad no tiene formato valido.")

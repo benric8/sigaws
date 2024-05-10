@@ -4,17 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>pe.gob.pj.consiga</groupId>
-		<artifactId>consultaServiciosPide-ws-rest</artifactId>
-		<version>1.1.0</version>
+		<artifactId>consulta-siga-ws-rest</artifactId>
+		<version>1.0.0</version>
 	</parent>
-	<artifactId>consultaServiciosPide-ws-usecase</artifactId>
-	<name>consultaServiciosPide-ws-usecase</name>
+	<artifactId>consulta-siga-ws-usecase</artifactId>
+	<name>consulta-siga-ws-usecase</name>
 	<description>Módulo encargado de los casos de uso</description>
 	
 	<dependencies>
 		<dependency>
 			<groupId>pe.gob.pj.consiga</groupId>
-			<artifactId>consultaServiciosPide-ws-domain</artifactId>
+			<artifactId>consulta-siga-ws-domain</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
