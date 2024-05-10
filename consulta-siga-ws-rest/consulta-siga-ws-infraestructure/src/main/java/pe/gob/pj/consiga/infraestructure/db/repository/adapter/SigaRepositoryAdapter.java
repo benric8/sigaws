@@ -10,7 +10,9 @@ import pe.gob.pj.consiga.domain.port.repository.SigaRepositoryPort;
 
 @Slf4j
 @Component("sigaRepositoryPort")
-public class SigaRepositoryAdapter implements SigaRepositoryPort{@Override
+public class SigaRepositoryAdapter implements SigaRepositoryPort{
+	
+	@Override
 	public List<EstadoUsuarioSiga> recuperarRoles(String cuo, String id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
