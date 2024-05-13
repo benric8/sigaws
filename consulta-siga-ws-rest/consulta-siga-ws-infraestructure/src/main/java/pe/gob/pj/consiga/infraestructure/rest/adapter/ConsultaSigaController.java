@@ -1,6 +1,7 @@
 package pe.gob.pj.consiga.infraestructure.rest.adapter;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -20,15 +21,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 import pe.gob.pj.consiga.domain.exceptions.ErrorException;
+import pe.gob.pj.consiga.domain.model.siga.EstadoUsuarioSiga;
+import pe.gob.pj.consiga.domain.port.usecase.SigaUseCasePort;
 import pe.gob.pj.consiga.domain.utils.ProjectConstants;
 import pe.gob.pj.consiga.domain.utils.ProjectUtils;
-import pe.gob.pj.consiga.infraestructure.client.response.ConadisBuscarPesonaBodyResponse;
-import pe.gob.pj.consiga.infraestructure.client.services.ConadisClient;
 import pe.gob.pj.consiga.infraestructure.rest.response.GlobalResponse;
 
 @Slf4j
 @RestController
-@RequestMapping(value="conadis", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+@RequestMapping(value="consulta", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 public class ConsultaSigaController implements Serializable{
 
 	/**
@@ -37,11 +38,11 @@ public class ConsultaSigaController implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
-	@Qualifier("conadisClient")
-	private ConadisClient client;
+	@Qualifier("sigaUseCasePort")
+	private SigaUseCasePort consultaSiga;
 	
-	@GetMapping(value="consultar/usuario_estado")
-	public ResponseEntity<GlobalResponse> buscarOficinas(@RequestAttribute(name=ProjectConstants.AUD_CUO) String cuo,
+	@GetMapping(value="usuario-estado")
+	public ResponseEntity<GlobalResponse> consultarUsuarioEstado(@RequestAttribute(name=ProjectConstants.AUD_CUO) String cuo,
 			@RequestParam(name = "formatoRespuesta", defaultValue = "json", required = false) String formatoRespuesta,
 			@Pattern(regexp = ProjectConstants.Pattern.NUMBER, message = "El parámetro numeroDocumentoIdentidad no tiene formato valido.")
 			@NotBlank(message = "El parámetro numeroDocumentoIdentidad no puede tener un valor vacio.")
@@ -52,7 +53,7 @@ public class ConsultaSigaController implements Serializable{
 		res.setCodigoOperacion(cuo.substring(1, cuo.length()-1));
 		
 		try {
-			ConadisBuscarPesonaBodyResponse data = client.buscarPersonaDiscapacidad(cuo, numeroDocumentoIdentidad);
+			List<EstadoUsuarioSiga> data = consultaSiga.recuperarEstados(cuo, numeroDocumentoIdentidad);
 			res.setCodigo(ProjectConstants.Error.CEXITO);
 			res.setDescripcion(ProjectConstants.Error.XEXITO);
 			res.setData(data);	
@@ -60,7 +61,7 @@ public class ConsultaSigaController implements Serializable{
 			handleException(cuo, e, res);
 		} catch (Exception e) {
 			handleException(cuo, new ErrorException(ProjectConstants.Error.CE000, 
-			        ProjectConstants.Error.XERROR + ProjectConstants.Proceso.CONADIS_BUSCAR_PERSONA_DISCAPACIDAD + ProjectConstants.Error.XE000,
+			        ProjectConstants.Error.XERROR + ProjectConstants.Proceso.SIGA_CONSULTAR_ESTADO + ProjectConstants.Error.XE000,
 			        e.getMessage(),
 			        e.getCause()), res);
 		}
