@@ -1,20 +1,22 @@
 package pe.gob.pj.consiga.infraestructure.db.repository.adapter;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.ParameterMode;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.dialect.OracleTypesHelper;
 import org.hibernate.procedure.ProcedureCall;
-import org.hibernate.result.Output;
-import org.hibernate.result.ResultSetOutput;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
+import oracle.jdbc.OracleTypes;
 import pe.gob.pj.consiga.domain.model.siga.EstadoUsuarioSiga;
 import pe.gob.pj.consiga.domain.port.repository.SigaRepositoryPort;
 import pe.gob.pj.consiga.infraestructure.db.procedures.ProcedureSiga;
@@ -38,24 +40,15 @@ public class SigaRepositoryAdapter implements SigaRepositoryPort, Serializable{
 		log.info("{} INICIO_DAO CONSULTA ESTADOS PERSONAL", cuo);
 		try {
 			ProcedureCall call = this.sf.getCurrentSession().createStoredProcedureCall(ProcedureSiga.QUERY_CONSULTAR_ACCESO_DNI);
-			
 			call.registerParameter(1, String.class, ParameterMode.IN).bindValue(dni);
-
-			call.registerParameter(2, Class.class, ParameterMode.REF_CURSOR);
+			call.registerParameter(2,OracleTypes.class , ParameterMode.REF_CURSOR);
 					 
-					/*
-					 * Output output = call.getOutputs().getCurrent(); if (output.isResultSet()) {
-					 * List<Object[]> postComments = ((ResultSetOutput) output).getResultList(); }
-					 */
-			List<Object[]> result = call.getResultList();
-
-		    // Procesar los resultados
-		    if (result != null && !result.isEmpty()) {
-		        for (Object[] row : result) {
-		            // Suponiendo que cada fila contiene los datos de un EstadoUsuarioSiga
-		            EstadoUsuarioSiga estado = new EstadoUsuarioSiga((String) row[0],(String) row[1]);
-		            
-		            //estado.setCodigoValida((String) row[0]); // Por ejemplo, si row[0] contiene algo relevante
+			@SuppressWarnings("unchecked")
+			List<Object[]> estados = call.getResultList();
+			
+		    if (estados != null && !estados.isEmpty()) {
+		        for (Object[] estadoRecuperado : estados) {
+		            EstadoUsuarioSiga estado = new EstadoUsuarioSiga((String) estadoRecuperado[0],(String) estadoRecuperado[1]);
 		            lista.add(estado);
 		        }
 		    }

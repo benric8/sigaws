@@ -31,7 +31,7 @@ public class DataSourceConfig {
 	
 	private static Properties getHibernatePropertiesOracle() {
 		Properties hibernateProperties = new Properties();
-		hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
+		hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
 		hibernateProperties.put("hibernate.show_sql", false);
 		return hibernateProperties;
 	}

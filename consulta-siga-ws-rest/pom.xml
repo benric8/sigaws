@@ -76,6 +76,13 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>
+		
+		
 	</dependencies>
 
 	<dependencyManagement>
@@ -106,7 +113,7 @@
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-text</artifactId>
 				<version>1.6</version>
-			</dependency>
+			</dependency>			
 		</dependencies>
 	</dependencyManagement>
 
