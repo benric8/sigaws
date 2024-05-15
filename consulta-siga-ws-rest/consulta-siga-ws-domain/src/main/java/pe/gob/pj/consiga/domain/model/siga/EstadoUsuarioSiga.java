@@ -16,7 +16,7 @@ public class EstadoUsuarioSiga implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String codigoValida;
-	private String descripcionValida;
+	private String codigoValidacion;
+	private String descripcionValidacion;
 
 }

@@ -25,6 +25,7 @@ import pe.gob.pj.consiga.domain.model.siga.EstadoUsuarioSiga;
 import pe.gob.pj.consiga.domain.port.usecase.SigaUseCasePort;
 import pe.gob.pj.consiga.domain.utils.ProjectConstants;
 import pe.gob.pj.consiga.domain.utils.ProjectUtils;
+import pe.gob.pj.consiga.infraestructure.client.response.EstadoUsuarioResponse;
 import pe.gob.pj.consiga.infraestructure.rest.response.GlobalResponse;
 
 @Slf4j
@@ -54,9 +55,14 @@ public class ConsultaSigaController implements Serializable{
 		
 		try {
 			List<EstadoUsuarioSiga> data = consultaSiga.recuperarEstados(cuo, numeroDocumentoIdentidad);
-			res.setCodigo(ProjectConstants.Error.CEXITO);
-			res.setDescripcion(ProjectConstants.Error.XEXITO);
-			res.setData(data);	
+			if(!data.isEmpty()) {
+				EstadoUsuarioResponse ueResponse = new EstadoUsuarioResponse(data.get(0));	
+				res.setCodigo(ProjectConstants.Error.CEXITO);
+				res.setDescripcion(ProjectConstants.Error.XEXITO);
+				res.setData(ueResponse);	
+			}else {
+				throw new Error("No se logro recueprar el estado del usuario");
+			}
 		} catch (ErrorException e) {
 			handleException(cuo, e, res);
 		} catch (Exception e) {
