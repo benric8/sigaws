@@ -36,8 +36,7 @@ public class SigaUseCaseAdapter implements SigaUseCasePort, Serializable{
 		List<EstadoUsuarioSiga> lista = repo.recuperarEstados(cuo, dni);
 		log.info("{} FIN_SERVICE CONSULTA SIGA", cuo);
 		return lista;
-		
-		
+			
 	}
 
 }

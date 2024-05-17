@@ -18,5 +18,8 @@ public class EstadoUsuarioSiga implements Serializable{
 	
 	private String codigoValidacion;
 	private String descripcionValidacion;
+	private String nombres;
+	private String apellidoPaterno;
+	private String apellidoMaterno;
 
 }

@@ -40,7 +40,7 @@ public class DataSourceConfig {
 	@Bean(name = "cxSeguridadDS")
 	public DataSource jndiConexionSeguridad() throws IllegalArgumentException, NamingException {
 		JndiObjectFactoryBean bean = new JndiObjectFactoryBean();
-		bean.setJndiName("java:jboss/datasources/consulta-sigaWSSeguridad");
+		bean.setJndiName("java:jboss/datasources/consultaSigaWSSeguridad");
 		bean.setProxyInterface(DataSource.class);
 		bean.setLookupOnStartup(false);
 		bean.setCache(true);
@@ -70,7 +70,7 @@ public class DataSourceConfig {
 	@Bean(name = "cxSigaDS")
 	public DataSource jndiConexionSiga() throws IllegalArgumentException, NamingException {
 		JndiObjectFactoryBean bean = new JndiObjectFactoryBean();
-		bean.setJndiName("java:jboss/datasources/consulta-sigaWSSiga");
+		bean.setJndiName("java:jboss/datasources/consultaSigaWSSiga");
 		bean.setProxyInterface(DataSource.class);
 		bean.setLookupOnStartup(false);
 		bean.setCache(true);

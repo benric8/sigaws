@@ -53,7 +53,12 @@ public class SigaRepositoryAdapter implements SigaRepositoryPort, Serializable{
 			
 		    if (estados != null && !estados.isEmpty()) {
 		        for (Object[] estadoRecuperado : estados) {
-		            EstadoUsuarioSiga estado = new EstadoUsuarioSiga((String) estadoRecuperado[0],(String) estadoRecuperado[1]);
+		            EstadoUsuarioSiga estado = new EstadoUsuarioSiga(
+		            		(String) estadoRecuperado[0],
+		            		(String) estadoRecuperado[1],
+		            		(String) estadoRecuperado[2],
+		            		(String) estadoRecuperado[3],
+		            		(String) estadoRecuperado[4]);
 		            lista.add(estado);
 		        }
 		    }

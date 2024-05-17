@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,7 @@ import pe.gob.pj.consiga.infraestructure.client.response.EstadoUsuarioResponse;
 import pe.gob.pj.consiga.infraestructure.rest.response.GlobalResponse;
 
 @Slf4j
+@Validated
 @RestController
 @RequestMapping(value="consulta", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 public class ConsultaSigaController implements Serializable{
@@ -47,7 +49,7 @@ public class ConsultaSigaController implements Serializable{
 			@RequestParam(name = "formatoRespuesta", defaultValue = "json", required = false) String formatoRespuesta,
 			@Pattern(regexp = ProjectConstants.Pattern.NUMBER, message = "El parámetro numeroDocumentoIdentidad no tiene formato valido.")
 			@NotBlank(message = "El parámetro numeroDocumentoIdentidad no puede tener un valor vacio.")
-			@Length(min = 8, max = 13, message = "El parámetro numeroDocumentoIdentidad tiene un tamaño no valido [min=1,max=1].") 
+			@Length(min = 8, max = 8, message = "El parámetro numeroDocumentoIdentidad tiene un tamaño no valido [min=8,max=8].") 
 			@RequestParam(name="numeroDocumentoIdentidad", required = true)
 			String numeroDocumentoIdentidad){
 		GlobalResponse res = new GlobalResponse();
