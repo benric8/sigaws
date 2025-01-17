@@ -110,7 +110,7 @@ consulta-siga-ws-rest/
 
 ### Recursos 
 
-+ Los recursos corresponden a los archivo propeties y logs, y se debe ubicar en la carpeta modules/pe/gob/pj/expediente-judicial del servidor donde se despliega el proyecto.
++ Los recursos corresponden a los archivo propeties y logs, y se debe ubicar en la carpeta modules/pe/gob/pj/consulta-siga del servidor donde se despliega el proyecto.
 ```
 https://desagit.pj.gob.pe/sdsi/recurso-servicios-in-modules/consulta-siga
 ```
